@@ -7,6 +7,7 @@ const IMG = (props) => {
     description,
   } = props;
   const [image, setImage] = useState();
+  console.log('name', name);
   import(`../images/${name}.${type ? type : 'jpg'}`)
     .then(img => {
       setImage(img.default);

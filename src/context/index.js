@@ -7,7 +7,8 @@ import {
 } from './actions';
 import appReducer, { initialState } from './reducer';
 
-const { Provider, Consumer } = React.createContext();
+export const store = React.createContext();
+const { Provider, Consumer } = store;
 
 export { Consumer as AppConsumer };
 

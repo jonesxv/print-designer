@@ -13,7 +13,7 @@ function App() {
             fabColor,
             shirtType
           }) => {
-            if (fabColor && shirtType) return <ImageContainer/>
+            if (fabColor && shirtType && false) return <ImageContainer/>
             return <DesignWizard/>
             }
           }
