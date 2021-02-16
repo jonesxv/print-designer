@@ -7,17 +7,7 @@ import { AppConsumer } from './context';
 function App() {
   return (
     <div className="App">
-      <AppConsumer>
-        {
-          ({
-            fabColor,
-            shirtType
-          }) => {
-            if (fabColor && shirtType && false) return <ImageContainer/>
-            return <DesignWizard/>
-            }
-          }
-      </AppConsumer>
+      <DesignWizard/>
     </div>
   );
 }

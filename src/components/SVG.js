@@ -1,8 +1,9 @@
 import React from 'react';
-import DesignMapping from '../Config/DesignMapping';
+import DesignMap from '../config/DesignMap';
 
 const SVG = ({ name }) => {
-  const svg = DesignMapping[name];
+  const svg = DesignMap[name];
+  console.log(svg);
   return (
     <div>
       {

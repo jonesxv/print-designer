@@ -3,7 +3,7 @@ import React from 'react';
 const AZ1 = (props) => {
   const {bg, color1, color2} = props;
   return (
-    <svg {...props} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 395.25 459">
+    <svg {...props} id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 459">
       <path d="M368.71,277.36a4.11,4.11,0,0,0,1.74,2.16l4.59-6.43A13.9,13.9,0,0,0,368.71,277.36Z" fill={bg} />
       <path d="M311.44,99.52c2.24,1.35,4.41,2.79,6.52,4.3L322,98.2a107.19,107.19,0,0,0-19.5-11.08l-4.13,5.76c2.39,1,4.74,2.09,7,3.25-7.13,10.47-18.32,20.51-29.47,28.06l-10.06,14C283.33,129.63,301.56,114.25,311.44,99.52Z" fill={bg} />
       <path d="M158.88,224.42h-6.23Q156.7,226,158.88,224.42Z" fill={bg} />

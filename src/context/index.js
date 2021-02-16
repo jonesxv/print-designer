@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  SET_DESIGN_NAME,
   SET_FAB_COLOR,
   SET_SHIRT_TYPE,
   SET_COLOR_ONE,
@@ -14,6 +15,11 @@ export { Consumer as AppConsumer };
 
 export const AppProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(appReducer, initialState);
+  const setDesignName = (designName) =>
+  dispatch({
+    type: SET_DESIGN_NAME,
+    designName,
+  });
   const setFabColor = (fabColor) =>
     dispatch({
       type: SET_FAB_COLOR,
@@ -37,6 +43,7 @@ export const AppProvider = ({ children }) => {
   return (
     <Provider value={{
       ...state,
+      setDesignName,
       setFabColor,
       setShirtType,
       setColorOne,

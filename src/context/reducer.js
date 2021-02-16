@@ -1,5 +1,6 @@
   
 import {
+  SET_DESIGN_NAME,
   SET_FAB_COLOR,
   SET_SHIRT_TYPE,
   SET_COLOR_ONE,
@@ -7,6 +8,7 @@ import {
 } from './actions';
 
 export const initialState = {
+  designName: 'az1',
   fabColor: undefined,
   shirtType: undefined,
   color1: 'black',
@@ -15,6 +17,11 @@ export const initialState = {
 
 const appReducer = (state, action) => {
   switch (action.type) {
+    case SET_DESIGN_NAME:
+      return {
+        ...state,
+        designName: action.designName,
+      };
     case SET_FAB_COLOR:
       return {
         ...state,
