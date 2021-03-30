@@ -8,11 +8,11 @@ import {
 } from './actions';
 
 export const initialState = {
-  designName: 'az1',
+  designName: undefined,
   fabColor: undefined,
   shirtType: undefined,
   color1: 'black',
-  color2: 'red',
+  color2: '#a71e31',
 };
 
 const appReducer = (state, action) => {

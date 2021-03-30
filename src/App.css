@@ -3,10 +3,33 @@ body, html {
 }
 
 .App {
+  position: relative;
+}
+
+.header {
+  height: 50px;
+  width: 100%;
+  background: #a71e31;
+  color: #fff;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  justify-content: center;
+}
+.wizard-container {
+  margin: auto;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.step-title {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 40px 10px 10px 10px;
 }
 
 .image-wrapper {
@@ -23,12 +46,13 @@ body, html {
 
 .color-selectors {
   display: flex;
+  align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
 
 .color-selectors .selector {
-  margin: 0 5px;
+  margin: 0 20px 0 5px;
 }
 
 .center {
@@ -45,6 +69,17 @@ body, html {
 .bg-image {
   position: relative;
   width: 100%;
+  min-width: 250px;
+}
+
+.image-details {
+  display: flex;
+  align-items: center;
+}
+
+.image-details ul {
+  list-style: none;
+  padding: 5px;
 }
 
 .save-button {
@@ -76,6 +111,8 @@ body, html {
   justify-content: space-evenly;
 }
 .card {
+  width: 200px;
+  text-align: center;
   justify-content: center;
   -ms-box-orient: vertical;
   display: -webkit-box;
@@ -95,7 +132,7 @@ body, html {
 }
 
 .selected {
-  border: 2px blue solid;
+  box-shadow: inset 0px 0px 0px 2px #a71e31;
   border-radius: 5px;
 }
 .card img {
@@ -143,6 +180,14 @@ body, html {
   min-width: 100px;
 }
 
+.MuiButton-containedPrimary {
+  background: #a71e31;
+}
+
+.MuiButton-outlined {
+
+}
+
 .swatches {
   margin: 20px 0;
   display: flex;
@@ -154,8 +199,14 @@ body, html {
   width: 40px;
   height: 20px;
   overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid lightgray;
   margin: 0 1em 1em 0;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.swatch.selected {
+  border-color: #a71e31;
 }
 
 .swatch img {

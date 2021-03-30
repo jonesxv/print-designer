@@ -7,7 +7,6 @@ import IMG from './IMG';
 import DesignMap from '../config/DesignMap';
 import { store } from '../context';
 import ImageContainer from './ImageContainer';
-import designs from '../constants/designs';
 
 const ItemCard = ({ nextStep, item }) => {
   const { setShirtType, shirtType } = useContext(store);
@@ -27,17 +26,6 @@ const ItemCard = ({ nextStep, item }) => {
       <Typography>
         {item.name}
       </Typography>
-      {
-        selected
-        && <Button
-          variant="contained"
-          color="primary"
-          onClick={nextStep}
-          className={'next-button'}
-        >
-          CHOOSE YOUR COLOR
-        </Button>
-      }
     </div>
   )
 }
@@ -48,18 +36,7 @@ const SelectStyle = (props) => {
   if (isActive) {
     return (
       <>
-        <h2>Choose your shirt type</h2>
-        <div className="cards">
-          {
-            items.map((item, idx) => (
-              <ItemCard
-                key={`${item.name}-${idx}`}
-                nextStep={nextStep}
-                item={item}
-              />
-            ))
-          }
-        </div>
+        <h2 className="step-title">Choose your shirt</h2>
         <div className="buttons">
           <Button
             onClick={previousStep}
@@ -77,6 +54,17 @@ const SelectStyle = (props) => {
             NEXT
           </Button>
         </div>
+        <div className="cards">
+          {
+            items.map((item, idx) => (
+              <ItemCard
+                key={`${item.name}-${idx}`}
+                nextStep={nextStep}
+                item={item}
+              />
+            ))
+          }
+        </div>
       </>
     )
   }
@@ -90,12 +78,30 @@ const SelectColor = ({ nextStep, previousStep, isActive }) => {
   const selectedColor = item
     ? item.colors.find(color => color.name === fabColor)
     : undefined;
-  const colorName = selectedColor ? selectedColor.desc : item ? item.defaultItem.desc : '';
   const handleClick = (color) => {
     setFabColor(color);
   }
   if (isActive) {
     return (
+      <>
+        <h3 className="step-title">SELECT A COLOR</h3>
+        <div className="buttons">
+        <Button
+            onClick={previousStep}
+            variant="outlined"
+            color="primary"
+          >
+            PREVIOUS
+          </Button>
+          <Button
+            onClick={nextStep}
+            variant="contained"
+            color="primary"
+            disabled={!selectedColor}
+          >
+            NEXT
+          </Button>
+        </div>
       <div className="select-color">
         {
           item
@@ -106,14 +112,14 @@ const SelectColor = ({ nextStep, previousStep, isActive }) => {
                 />
               </div>
               <div className="right-col">
-                <h3>SELECT A COLOR</h3>
-                <span><b>Color:</b> {selectedColor ? selectedColor.desc : null}</span>
+                <span><b>Color:</b> {selectedColor ? selectedColor.desc : 'NONE SELECTED'}</span>
                 <div className="swatches two-col">
                   {
                     item.colors.map(color => {
+                      const selectedSwatch = selectedColor ? (color.name === selectedColor.name ? ' selected' : '') : '';
                       return (
                         <div
-                          className="swatch"
+                          className={`swatch${selectedSwatch}`}
                           onClick={() => handleClick(color.name)}
                         >
                           <IMG name={`swatches/${color.swatch}`}/>
@@ -122,27 +128,11 @@ const SelectColor = ({ nextStep, previousStep, isActive }) => {
                     })
                   }
                 </div>
-                <div className="buttons">
-                  <Button
-                    onClick={previousStep}
-                    variant="outlined"
-                    color="primary"
-                  >
-                    PREVIOUS
-                  </Button>
-                  <Button
-                    onClick={nextStep}
-                    variant="contained"
-                    color="primary"
-                    disabled={!selectedColor}
-                  >
-                    NEXT
-                  </Button>
-                </div>
               </div>
             </>
         }
       </div>
+      </>
     )
   }
   return null;
@@ -152,26 +142,7 @@ const SelectDesign = ({ nextStep }) => {
   const { color1, color2, designName, setDesignName } = useContext(store);
   return (
     <>
-      <div className="cards">
-        {
-          designs.map(design => {
-            const SVG = DesignMap[design.name];
-            return (
-              <div
-                className={`card design`}
-                onClick={() => setDesignName(design.name)}
-              >
-                <SVG
-                  bg={'none'}
-                  name={design.name}
-                  color1={color1}
-                  color2={color2}
-                />
-              </div>
-            )}
-          )
-        }
-      </div>
+      <h2 className="step-title">Choose a design</h2>
       <div className="buttons">
         <Button
           onClick={nextStep}
@@ -181,6 +152,28 @@ const SelectDesign = ({ nextStep }) => {
         >
           NEXT
         </Button>
+      </div>
+      <div className="cards">
+        {
+          Object.keys(DesignMap).map(design => {
+            console.log(design);
+            const SVG = DesignMap[design].component;
+            const selected = designName === design ? ' selected' : null;
+            return (
+              <div
+                className={`card design ${selected}`}
+                onClick={() => setDesignName(design)}
+              >
+                <SVG
+                  bg={'none'}
+                  name={design}
+                  color1={color1}
+                  color2={color2}
+                />
+              </div>
+            )}
+          )
+        }
       </div>
     </>
   );
