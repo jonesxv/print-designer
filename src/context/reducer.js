@@ -11,7 +11,7 @@ export const initialState = {
   designName: undefined,
   fabColor: undefined,
   shirtType: undefined,
-  color1: 'black',
+  color1: '#000000',
   color2: '#a71e31',
 };
 

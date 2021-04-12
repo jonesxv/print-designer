@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import reactCSS from 'reactcss'
-import { ChromePicker } from 'react-color'
+import { ChromePicker } from 'react-color';
 
 export const ColorSelector = ({
   color,
@@ -16,16 +16,15 @@ export const ColorSelector = ({
     setShowPicker(false);
   };
 
-  const handleChange = (color) => {
-    setColor(color.hex);
+  const handleChange = (_color) => {
+    setColor(_color.hex);
   };
-
 
   const styles = reactCSS({
     'default': {
       color: {
         width: '50px',
-        height: '20px',
+        height: '30px',
         borderRadius: '2px',
         background: `${color}`,
       },
@@ -39,9 +38,11 @@ export const ColorSelector = ({
       },
       popover: {
         position: 'absolute',
+        width: '100%',
+        maxWidth: '300px',
         zIndex: '2',
-        top: '50%',
-        right: 'calc(50% - 112px)',
+        top: '150px',
+        right: 'calc(50% - 190px)',
       },
       cover: {
         position: 'fixed',
@@ -52,15 +53,20 @@ export const ColorSelector = ({
       },
     },
   })
+
   return (
-    <div>
+    <div className="picker-wrapper">
       <div style={ styles.swatch } onClick={ handleClick }>
         <div style={ styles.color } />
       </div>
       { showPicker ? <div style={ styles.popover }>
         <div style={ styles.cover } onClick={ handleClose }/>
-        <ChromePicker color={ color } onChange={ handleChange } />
-        <button className={'save-button'} onClick={ handleClose }>SAVE</button>
+        <ChromePicker
+          disableAlpha={true}
+          color={color}
+          onChange={handleChange}
+        />
+        <button className={'save-button'} onClick={ handleClose }>APPLY</button>
       </div> : null }
 
     </div>

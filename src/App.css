@@ -7,6 +7,8 @@ body, html {
 }
 
 .header {
+  position: fixed;
+  z-index: 999;
   height: 50px;
   width: 100%;
   background: #a71e31;
@@ -16,6 +18,15 @@ body, html {
   align-items: center;
   font-size: 1.4rem;
   justify-content: center;
+}
+.step-header {
+  background: #fff;
+  max-width: 800px;
+  width: 100%;
+  top: 20px;
+  position: fixed;
+  z-index: 998;
+  padding-bottom: 10px;
 }
 .wizard-container {
   margin: auto;
@@ -37,14 +48,17 @@ body, html {
   height: 100%;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 .image-container {
   position: relative;
-  width: 500px;
+  width: 400px;
   text-align: center;
+  margin: auto;
 }
 
 .color-selectors {
+  padding-top: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,10 +94,23 @@ body, html {
 .image-details ul {
   list-style: none;
   padding: 5px;
+  margin: auto;
+}
+
+.hex-input {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.hex-input input {
+  width: 60px;
+  margin-left: 5px;
 }
 
 .save-button {
-  width: 100%;
+  height: 35px;
+  width: 225px;
   color: white;
   background: slategray;
   border: 5px solid slategray;
@@ -100,12 +127,13 @@ body, html {
 /* Mobile */
 @media only screen and (max-width: 600px) {
   .image-container {
-    width: 350px;
+    width: 300px;
   }
 }
 
 /* Cards */
 .cards {
+  padding-top: 150px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
@@ -144,6 +172,7 @@ body, html {
 }
 
 .select-color {
+  padding-top: 120px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -160,10 +189,11 @@ body, html {
   flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
-  max-width: 400px;
+  max-width: 300px;
 }
 
 .right-col {
+  padding: 10px;
   display: flex;
   max-width: 400px;
   flex-direction: column;
@@ -197,11 +227,11 @@ body, html {
 
 .swatch {
   width: 40px;
-  height: 20px;
+  height: 25px;
   overflow: hidden;
   border-radius: 5px;
   border: 1px solid lightgray;
-  margin: 0 1em 1em 0;
+  margin: 15px 15px auto;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 

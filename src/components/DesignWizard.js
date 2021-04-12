@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import StepWizard from 'react-step-wizard';
+import React, { useContext, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import items from '../constants/items';
@@ -31,11 +30,11 @@ const ItemCard = ({ nextStep, item }) => {
 }
 
 const SelectStyle = (props) => {
-  const { nextStep, isActive, previousStep } = props;
+  const { nextStep, previousStep } = props;
   const { shirtType } = useContext(store);
-  if (isActive) {
-    return (
-      <>
+  return (
+    <>
+      <div className="step-header">
         <h2 className="step-title">Choose your shirt</h2>
         <div className="buttons">
           <Button
@@ -54,24 +53,23 @@ const SelectStyle = (props) => {
             NEXT
           </Button>
         </div>
-        <div className="cards">
-          {
-            items.map((item, idx) => (
-              <ItemCard
-                key={`${item.name}-${idx}`}
-                nextStep={nextStep}
-                item={item}
-              />
-            ))
-          }
-        </div>
-      </>
-    )
-  }
-  return null;
+      </div>
+      <div className="cards">
+        {
+          items.map((item, idx) => (
+            <ItemCard
+              key={`${item.name}-${idx}`}
+              nextStep={nextStep}
+              item={item}
+            />
+          ))
+        }
+      </div>
+    </>
+  )
 }
 
-const SelectColor = ({ nextStep, previousStep, isActive }) => {
+const SelectColor = ({ nextStep, previousStep }) => {
   const { setFabColor, shirtType, fabColor } = useContext(store);
   const item = items.find(item => item.id === shirtType);
   // const selectedColor = fabColor ? fabColor : item ? item.defaultItem : '';
@@ -81,9 +79,9 @@ const SelectColor = ({ nextStep, previousStep, isActive }) => {
   const handleClick = (color) => {
     setFabColor(color);
   }
-  if (isActive) {
-    return (
-      <>
+  return (
+    <>
+      <div className="step-header">
         <h3 className="step-title">SELECT A COLOR</h3>
         <div className="buttons">
         <Button
@@ -102,65 +100,66 @@ const SelectColor = ({ nextStep, previousStep, isActive }) => {
             NEXT
           </Button>
         </div>
-      <div className="select-color">
-        {
-          item
-            && <>
-              <div className="shirt-image two-col">
-                <IMG
-                  name={`product/${item.id}-${selectedColor ? selectedColor.name : item.defaultItem.name}-F`}
-                />
-              </div>
-              <div className="right-col">
-                <span><b>Color:</b> {selectedColor ? selectedColor.desc : 'NONE SELECTED'}</span>
-                <div className="swatches two-col">
-                  {
-                    item.colors.map(color => {
-                      const selectedSwatch = selectedColor ? (color.name === selectedColor.name ? ' selected' : '') : '';
-                      return (
-                        <div
-                          className={`swatch${selectedSwatch}`}
-                          onClick={() => handleClick(color.name)}
-                        >
-                          <IMG name={`swatches/${color.swatch}`}/>
-                        </div>
-                      )
-                    })
-                  }
-                </div>
-              </div>
-            </>
-        }
       </div>
-      </>
-    )
-  }
-  return null;
+    <div className="select-color">
+      {
+        item
+          && <>
+            <div className="shirt-image two-col">
+              <IMG
+                name={`product/${item.id}-${selectedColor ? selectedColor.name : item.defaultItem.name}-F`}
+              />
+            </div>
+            <div className="right-col">
+              <span><b>Color:</b> {selectedColor ? selectedColor.desc : 'NONE SELECTED'}</span>
+              <div className="swatches two-col">
+                {
+                  item.colors.map(color => {
+                    const selectedSwatch = selectedColor ? (color.name === selectedColor.name ? ' selected' : '') : '';
+                    return (
+                      <div
+                        className={`swatch${selectedSwatch}`}
+                        onClick={() => handleClick(color.name)}
+                      >
+                        <IMG name={`swatches/${color.swatch}`}/>
+                      </div>
+                    )
+                  })
+                }
+              </div>
+            </div>
+          </>
+      }
+    </div>
+    </>
+  )
 }
 
 const SelectDesign = ({ nextStep }) => {
   const { color1, color2, designName, setDesignName } = useContext(store);
   return (
     <>
-      <h2 className="step-title">Choose a design</h2>
-      <div className="buttons">
-        <Button
-          onClick={nextStep}
-          variant="contained"
-          color="primary"
-          disabled={!designName}
-        >
-          NEXT
-        </Button>
+      <div className="step-header">
+        <h2 className="step-title">Choose a design</h2>
+        <div className="buttons">
+          <Button
+            onClick={nextStep}
+            variant="contained"
+            color="primary"
+            disabled={!designName}
+          >
+            NEXT
+          </Button>
+        </div>
       </div>
       <div className="cards">
         {
-          Object.keys(DesignMap).map(design => {
-            console.log(design);
+          Object.keys(DesignMap).map((design, idx) => {
             const SVG = DesignMap[design].component;
             const selected = designName === design ? ' selected' : null;
             return (
               <div
+                key={`design${idx}`}
                 className={`card design ${selected}`}
                 onClick={() => setDesignName(design)}
               >
@@ -179,14 +178,27 @@ const SelectDesign = ({ nextStep }) => {
   );
 };
 
+const steps = [
+  SelectDesign,
+  SelectStyle,
+  SelectColor,
+  ImageContainer,
+]
+
 const DesignWizard = () => {
+  const [step, setStep] = useState(0);
+  const handleNext = () => setStep(step + 1);
+  const handlePrevious = () => {
+    if (step !== 0) {
+      setStep(step - 1);
+    }
+  }
+  const CurrentStep = steps[step];
   return (
-    <StepWizard>
-      <SelectDesign/>
-      <SelectStyle/>
-      <SelectColor/>
-      <ImageContainer/>
-    </StepWizard>
+    <CurrentStep
+      nextStep={handleNext}
+      previousStep={handlePrevious}
+    />
   );
 };
 

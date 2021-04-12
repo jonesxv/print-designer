@@ -1,3 +1,5 @@
+import logoPositions from "../styles/logoPositions";
+
 export const items = [
   {
     name: 'CVC CREW',
@@ -5,7 +7,7 @@ export const items = [
     fabric: '60% Cotton / 40% Poly',
     fabricDetail: '60% Combed Ring-Spun Cotton 40% Polyester /32 singles, 145 grams/4.3oz',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'],
-   defaultItem: {
+    defaultItem: {
       name: 'BLACK'
     },
     colors: [
@@ -304,6 +306,7 @@ export const items = [
     fabric: '60% Cotton / 40% Poly Fleece',
     fabricDetail: '60% Cotton 40% Polyester Fleece / 30 singles, 250 grams/7.4oz heathered fleece, 60/40 CVC face.',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'],
+    style: logoPositions[9300],
     defaultItem: {
       name: 'HEATHERBLACK'
     },
@@ -366,6 +369,7 @@ export const items = [
     fabric: '50/25/25 Poly/Cotton/Rayon',
     fabricDetail: '50% Polyester 25% Combed Ring-Spun Cotton 25% Rayon / 32 singles, 145 grams/4.3oz.',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    style: logoPositions[6021],
     defaultItem: {
       name: 'VINTAGEBLACK'
     },
@@ -492,6 +496,7 @@ export const items = [
   {
     name: 'WOMEN\'S IDEAL RACERBACK TANK',
     id: 1533,
+    style: logoPositions.tank1,
     fabric: '60% Cotton / 40% Poly',
     fabricDetail: '60% Combed Ring-Spun Cotton 40% Polyester / 30 singles, 135 grams/4.0oz',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
@@ -632,6 +637,7 @@ export const items = [
     fabric: '35% Cotton / 65% Poly',
     fabricDetail: '65% Polyester 35% Combed Ring-Spun Cotton / 40 singles, 120 grams/3.5 oz.',
     sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    style: logoPositions[5033],
     defaultItem: {
       name: 'BLACK'
     },

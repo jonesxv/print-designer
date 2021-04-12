@@ -1,5 +1,9 @@
 export const designs = [
   {
+    name: 'simpleESTD',
+    desc: 'Simple ESTD',
+  },
+  {
     name: 'circleESTD',
     desc: 'Circle ESTD',
     twoColor: true,
@@ -33,16 +37,14 @@ export const designs = [
     twoColor: true,
   },
   {
-    name: 'simpleESTD',
-    desc: 'Simple ESTD',
-  },
-  {
     name: 'bannerBrush',
     desc: 'Banner Brush',
+    twoColor: true,
   },
   {
     name: 'bannerBold',
     desc: 'Banner Bold',
+    twoColor: true,
   }
 ];
 

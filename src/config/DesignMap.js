@@ -10,10 +10,29 @@ import BannerBrush from '../components/designs/BannerBrush';
 import Mask from '../components/designs/Mask';
 
 export const DesignMap = {
+  circleESTD: {
+    component: CircleESTD,
+    desc: 'Circle ESTD',
+    twoColor: true,
+  },
+  bannerBold: {
+    component: BannerBold,
+    desc: 'Banner Bold',
+    twoColor: true,
+  },
+  bannerBrush: {
+    component: BannerBrush,
+    desc: 'Banner Brush',
+    twoColor: true,
+  },
   az1: {
     component: AZ1,
     desc: 'AZ-1',
     twoColor: true,
+  },
+  simpleCircle: {
+    component: SimpleCircle,
+    desc: 'Simple Circle',
   },
   az2: {
     component: AZ2,
@@ -28,22 +47,6 @@ export const DesignMap = {
     component: Brush,
     desc: 'Brush',
     twoColor: true,
-  },
-  bannerBold: {
-    component: BannerBold,
-    desc: 'Banner Bold',
-  },
-  bannerBrush: {
-    component: BannerBrush,
-    desc: 'Banner Brush',
-  },
-  circleESTD: {
-    component: CircleESTD,
-    desc: 'Circle ESTD',
-  },
-  simpleCircle: {
-    component: SimpleCircle,
-    desc: 'Simple Circle',
   },
   simpleESTD: {
     component: SimpleESTD,
