@@ -5,6 +5,7 @@ import { ChromePicker } from 'react-color';
 export const ColorSelector = ({
   color,
   setColor,
+  children
 }) => {
   const [showPicker, setShowPicker] = useState(false);
 
@@ -56,6 +57,7 @@ export const ColorSelector = ({
 
   return (
     <div className="picker-wrapper">
+      <span>{children}</span>
       <div style={ styles.swatch } onClick={ handleClick }>
         <div style={ styles.color } />
       </div>

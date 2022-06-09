@@ -6,6 +6,12 @@ body, html {
   position: relative;
 }
 
+.input-fields {
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   position: fixed;
   z-index: 999;
@@ -58,6 +64,7 @@ body, html {
 }
 
 .color-selectors {
+  flex-direction: column;
   padding-top: 150px;
   display: flex;
   align-items: center;
@@ -69,11 +76,39 @@ body, html {
   margin: 0 20px 0 5px;
 }
 
+.picker-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.picker-wrapper > span {
+  padding: 4px;
+}
+
 .center {
   text-align: center;
 }
 
+.submit-modal {
+  background: white;
+  max-width: 300px;
+  margin: 150px auto;
+  padding: 40px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit-modal h2 {
+  text-align: center;
+}
+
+.submit-modal p {
+  text-align: center;
+}
+
 .design-image {
+  z-index: 1;
   position: absolute;
   width: 35%;
   top: 25%;
@@ -89,6 +124,7 @@ body, html {
 .image-details {
   display: flex;
   align-items: center;
+  text-align: center;
 }
 
 .image-details ul {
@@ -203,6 +239,7 @@ body, html {
 .buttons {
   display: flex;
   justify-content: center;
+  margin-top:10px
 }
 
 .buttons Button {

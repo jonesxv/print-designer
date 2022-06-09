@@ -6,6 +6,7 @@ import IMG from './IMG';
 import DesignMap from '../config/DesignMap';
 import { store } from '../context';
 import ImageContainer from './ImageContainer';
+import {InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
 
 const ItemCard = ({ nextStep, item }) => {
   const { setShirtType, shirtType } = useContext(store);
@@ -178,10 +179,64 @@ const SelectDesign = ({ nextStep }) => {
   );
 };
 
+const CustomerDetails = ({ nextStep, previousStep }) => {
+  const {name, setName, setSize, size} = useContext(store);
+  return (
+      <>
+        <div className="step-header">
+          <h2 className="step-title">Add your details</h2>
+          <div className="buttons">
+            <Button
+                onClick={previousStep}
+                variant="outlined"
+                color="primary"
+            >
+              PREVIOUS
+            </Button>
+            <Button
+                disabled={!Boolean(name) || !Boolean(size)}
+                onClick={nextStep}
+                variant="contained"
+                color="primary"
+            >
+              NEXT
+            </Button>
+          </div>
+        </div>
+        <div className="input-fields">
+          <TextField
+            onChange={(e) => setName(e.currentTarget.value)}
+            label="Your Full Name"
+            margin="normal"
+            value={name}
+            variant="outlined"
+          />
+          <InputLabel id="shirt-size-select-label">Shirt Size</InputLabel>
+          <Select
+            onChange={(e) => setSize(e.target.value)}
+            label="Shirt Size"
+            labelId="shirt-size-select-label"
+            margin="normal"
+            value={size}
+            variant="outlined"
+          >
+            <MenuItem value="XS">XS</MenuItem>
+            <MenuItem value="S">S</MenuItem>
+            <MenuItem value="M">M</MenuItem>
+            <MenuItem value="L">L</MenuItem>
+            <MenuItem value="XL">XL</MenuItem>
+            <MenuItem value="XXL">XXL</MenuItem>
+          </Select>
+        </div>
+      </>
+  )
+}
+
 const steps = [
   SelectDesign,
   SelectStyle,
   SelectColor,
+  CustomerDetails,
   ImageContainer,
 ]
 
