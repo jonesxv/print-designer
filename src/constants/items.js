@@ -363,94 +363,94 @@ export const items = [
       }
     ]
   },
-  {
-    name: 'TRI-BLEND L/S HOODY',
-    id: 6021,
-    fabric: '50/25/25 Poly/Cotton/Rayon',
-    fabricDetail: '50% Polyester 25% Combed Ring-Spun Cotton 25% Rayon / 32 singles, 145 grams/4.3oz.',
-    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
-    style: logoPositions[6021],
-    defaultItem: {
-      name: 'VINTAGEBLACK'
-    },
-    colors: [
-      {
-        name: 'HEATHERWHITE',
-        desc: 'Heather White',
-        swatch: 'heather-white',
-      },
-      {
-        name: 'VINTAGEBLACK',
-        desc: 'Vintage Black',
-        swatch: 'vintage-black',
-      },
-      {
-        name: 'ENVY',
-        desc: 'Envy',
-        swatch: 'envy',
-      },
-      {
-        name: 'INDIGO',
-        desc: 'Indigo',
-        swatch: 'indigo',
-      },
-      {
-        name: 'MACCHIATO',
-        desc: 'Macchiato',
-        swatch: 'macchiato',
-      },
-      {
-        name: 'MILITARYGREEN',
-        desc: 'Military Green',
-        swatch: 'military-green',
-      },
-      {
-        name: 'PREMIUMHEATHER',
-        desc: 'Prem Heather',
-        swatch: 'premheather',
-      },
-      {
-        name: 'PURPLERUSH',
-        desc: 'Purple Rush',
-        swatch: 'purplerush',
-      },
-      {
-        name: 'TAHITIBLUE',
-        desc: 'Tahiti Blue',
-        swatch: 'tahiti-blue',
-      },
-      {
-        name: 'VENETIANGRAY',
-        desc: 'Venetian Gray',
-        swatch: 'venetiangray',
-      },
-      {
-        name: 'VINTAGENAVY',
-        desc: 'Vintage Navy',
-        swatch: 'vintage-navy',
-      },
-      {
-        name: 'VINTAGEPURPLE',
-        desc: 'Vintage Purple',
-        swatch: 'vintage-purple',
-      },
-      {
-        name: 'VINTAGERED',
-        desc: 'Vintage Red',
-        swatch: 'vintage-red',
-      },
-      {
-        name: 'VINTAGEROYAL',
-        desc: 'Vintage Royal',
-        swatch: 'vintage-royal',
-      },
-      {
-        name: 'VINTAGETURQUOISE',
-        desc: 'Turquoise',
-        swatch: 'vintage-turquoise',
-      }
-    ]
-  },
+  // {
+  //   name: 'TRI-BLEND L/S HOODY',
+  //   id: 6021,
+  //   fabric: '50/25/25 Poly/Cotton/Rayon',
+  //   fabricDetail: '50% Polyester 25% Combed Ring-Spun Cotton 25% Rayon / 32 singles, 145 grams/4.3oz.',
+  //   sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+  //   style: logoPositions[6021],
+  //   defaultItem: {
+  //     name: 'VINTAGEBLACK'
+  //   },
+  //   colors: [
+  //     {
+  //       name: 'HEATHERWHITE',
+  //       desc: 'Heather White',
+  //       swatch: 'heather-white',
+  //     },
+  //     {
+  //       name: 'VINTAGEBLACK',
+  //       desc: 'Vintage Black',
+  //       swatch: 'vintage-black',
+  //     },
+  //     {
+  //       name: 'ENVY',
+  //       desc: 'Envy',
+  //       swatch: 'envy',
+  //     },
+  //     {
+  //       name: 'INDIGO',
+  //       desc: 'Indigo',
+  //       swatch: 'indigo',
+  //     },
+  //     {
+  //       name: 'MACCHIATO',
+  //       desc: 'Macchiato',
+  //       swatch: 'macchiato',
+  //     },
+  //     {
+  //       name: 'MILITARYGREEN',
+  //       desc: 'Military Green',
+  //       swatch: 'military-green',
+  //     },
+  //     {
+  //       name: 'PREMIUMHEATHER',
+  //       desc: 'Prem Heather',
+  //       swatch: 'premheather',
+  //     },
+  //     {
+  //       name: 'PURPLERUSH',
+  //       desc: 'Purple Rush',
+  //       swatch: 'purplerush',
+  //     },
+  //     {
+  //       name: 'TAHITIBLUE',
+  //       desc: 'Tahiti Blue',
+  //       swatch: 'tahiti-blue',
+  //     },
+  //     {
+  //       name: 'VENETIANGRAY',
+  //       desc: 'Venetian Gray',
+  //       swatch: 'venetiangray',
+  //     },
+  //     {
+  //       name: 'VINTAGENAVY',
+  //       desc: 'Vintage Navy',
+  //       swatch: 'vintage-navy',
+  //     },
+  //     {
+  //       name: 'VINTAGEPURPLE',
+  //       desc: 'Vintage Purple',
+  //       swatch: 'vintage-purple',
+  //     },
+  //     {
+  //       name: 'VINTAGERED',
+  //       desc: 'Vintage Red',
+  //       swatch: 'vintage-red',
+  //     },
+  //     {
+  //       name: 'VINTAGEROYAL',
+  //       desc: 'Vintage Royal',
+  //       swatch: 'vintage-royal',
+  //     },
+  //     {
+  //       name: 'VINTAGETURQUOISE',
+  //       desc: 'Turquoise',
+  //       swatch: 'vintage-turquoise',
+  //     }
+  //   ]
+  // },
   // {
   //   name: 'MOCK TWIST RAGLAN HOODY',
   //   id: 2021,
