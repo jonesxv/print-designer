@@ -451,45 +451,83 @@ export const items = [
       }
     ]
   },
+  // {
+  //   name: 'MOCK TWIST RAGLAN HOODY',
+  //   id: 2021,
+  //   fabric: '60% Cotton / 40% Poly',
+  //   fabricDetail: '60% Combed Ring-Spun Cotton 40% Polyester / 20 singles, 175 grams/5.1oz.',
+  //   sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'],
+  //   defaultItem: {
+  //     name: 'BLACK'
+  //   },
+  //   colors: [
+  //     {
+  //       name: 'BLACK',
+  //       desc: 'Black',
+  //       swatch: 'mocktwist-black',
+  //     },
+  //     {
+  //       name: 'FORESTGREEN',
+  //       desc: 'Forest Green',
+  //       swatch: 'mocktwist-forest-green',
+  //     },
+  //     {
+  //       name: 'HEATHERGRAY',
+  //       desc: 'Heather Gray',
+  //       swatch: 'mocktwist-heathergray',
+  //     },
+  //     {
+  //       name: 'INDIGO',
+  //       desc: 'Indigo',
+  //       swatch: 'mocktwist-indigo',
+  //     },
+  //     {
+  //       name: 'LIGHTMAROON',
+  //       desc: 'Light Maroon',
+  //       swatch: 'mocktwist-lightmaroon',
+  //     },
+  //     {
+  //       name: 'TECHPINK',
+  //       desc: 'Tech Pink',
+  //       swatch: 'mocktwist-techpink',
+  //     }
+  //   ]
+  // },
   {
-    name: 'MOCK TWIST RAGLAN HOODY',
-    id: 2021,
-    fabric: '60% Cotton / 40% Poly',
-    fabricDetail: '60% Combed Ring-Spun Cotton 40% Polyester / 20 singles, 175 grams/5.1oz.',
-    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL'],
+    name: 'DISTRICT LONG SLEEVE HOODIE',
+    id: 8070,
+    fabric: '50% Poly / 25% Cotton / 25% Rayon',
+    fabricDetail: '4.5-ounce, 50/25/25 poly/combed ring spun cotton/rayon, 32 singles',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL', '3XL', '4XL'],
+    style: logoPositions[8070],
     defaultItem: {
-      name: 'BLACK'
+      name: 'BLACKFROST'
     },
     colors: [
       {
-        name: 'BLACK',
-        desc: 'Black',
-        swatch: 'mocktwist-black',
+        name: 'BLACKFROST',
+        desc: 'Black Frost',
+        swatch: 'black-frost',
       },
       {
-        name: 'FORESTGREEN',
-        desc: 'Forest Green',
-        swatch: 'mocktwist-forest-green',
+        name: 'CHARCOAL',
+        desc: 'Charcoal',
+        swatch: 'charcoal',
       },
       {
-        name: 'HEATHERGRAY',
-        desc: 'Heather Gray',
-        swatch: 'mocktwist-heathergray',
+        name: 'DEEPROYAL',
+        desc: 'Deep Royal',
+        swatch: 'deep-royal',
       },
       {
-        name: 'INDIGO',
-        desc: 'Indigo',
-        swatch: 'mocktwist-indigo',
+        name: 'GREYFROST',
+        desc: 'Grey Frost',
+        swatch: 'grey-frost',
       },
       {
-        name: 'LIGHTMAROON',
-        desc: 'Light Maroon',
-        swatch: 'mocktwist-lightmaroon',
-      },
-      {
-        name: 'TECHPINK',
-        desc: 'Tech Pink',
-        swatch: 'mocktwist-techpink',
+        name: 'NAVYFROST',
+        desc: 'Navy Frost',
+        swatch: 'navy-frost',
       }
     ]
   },
