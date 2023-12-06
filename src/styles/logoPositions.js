@@ -16,6 +16,10 @@ const logoPositions = reactCSS({
       top: '28%',
       left: '33%',
     },
+    8070: {
+      top: '30%',
+      left: '32%',
+    },
     9300: {
       width: '37%',
       left: '33%',
