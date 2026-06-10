@@ -5,6 +5,7 @@ import IMG from './IMG';
 import DesignMap from '../config/DesignMap';
 import { store } from '../context';
 import ImageContainer from './ImageContainer';
+import { preloadImages } from '../lib/imageLoader';
 
 const closeColorPicker = () => {
   if (
@@ -212,6 +213,29 @@ const DesignWizard = () => {
     { id: 'preview', label: 'Preview', ref: previewRef, available: Boolean(designName && shirtType && fabColor), completed: false },
   ];
   const visibleSteps = steps.filter(step => step.available);
+
+  useEffect(() => {
+    preloadImages(items.map(item => ({
+      name: `product/${item.id}-${item.defaultItem.name}-F`,
+    })));
+  }, []);
+
+  useEffect(() => {
+    const selectedItem = items.find(item => item.id === shirtType);
+
+    if (!selectedItem) {
+      return;
+    }
+
+    preloadImages([
+      {
+        name: `product/${selectedItem.id}-${fabColor || selectedItem.defaultItem.name}-F`,
+      },
+      ...selectedItem.colors.map(color => ({
+        name: `swatches/${color.swatch}`,
+      })),
+    ]);
+  }, [fabColor, shirtType]);
 
   const updateActiveStep = useCallback(() => {
     const flow = flowRef.current;

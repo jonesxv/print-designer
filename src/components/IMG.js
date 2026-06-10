@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { imageLoader } from '../lib/imageLoader';
 
 const IMG = (props) => {
   const {
@@ -7,14 +8,22 @@ const IMG = (props) => {
     description,
   } = props;
   const [image, setImage] = useState();
-  import(`../images/${name}.${type ? type : 'jpg'}`)
-    .then(img => {
-      setImage(img.default);
-    })
-    .catch((err) => {
-      console.log(err);
-      setImage(undefined);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    setImage(undefined);
+    imageLoader({ name, type }).then((loadedImage) => {
+      if (isMounted) {
+        setImage(loadedImage);
+      }
     });
+
+    return () => {
+      isMounted = false;
+    };
+  }, [name, type]);
+
   return (
     <>
       {
