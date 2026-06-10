@@ -50,6 +50,7 @@ body, html {
   height: 100%;
   --app-header-height: 50px;
   --wizard-progress-height: 64px;
+  --preview-shirt-width: 400px;
   --brand-red: #a71930;
   --brand-red-bright: #c42039;
   --navy: #0b132b;
@@ -1150,23 +1151,29 @@ body, html {
 }
 
 .preview-composer {
-  display: grid;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 18px;
-  grid-template-columns: minmax(240px, 330px) minmax(280px, 420px);
-  max-width: 800px;
+  justify-content: center;
+  max-width: calc(var(--preview-shirt-width) + 438px);
   padding-top: 4px;
 }
 
 .preview-shirt-panel {
-  align-self: center;
+  align-self: flex-start;
   background: #fff;
   border: 1px solid color-mix(in srgb, var(--navy) 10%, transparent);
   border-radius: 6px;
   box-shadow: 0 18px 45px color-mix(in srgb, var(--navy) 8%, transparent);
   display: flex;
-  min-height: 360px;
+  flex: 0 0 auto;
+  height: fit-content;
+  min-height: 0;
   order: 0;
-  padding: 14px;
+  padding: 0;
+  width: var(--preview-shirt-width);
 }
 
 .preview-controls {
@@ -1174,7 +1181,9 @@ body, html {
   align-self: center;
   display: flex;
   flex-direction: column;
+  flex: 1 1 320px;
   gap: 12px;
+  max-width: 420px;
   order: 1;
   width: 100%;
 }
@@ -1284,7 +1293,7 @@ body, html {
 
   .preview-shirt-panel {
     min-height: 0;
-    padding: 8px;
+    padding: 0;
   }
 
   .preview-controls {
@@ -1487,7 +1496,7 @@ body, html {
 
   .preview-shirt-panel {
     min-height: 0;
-    padding: 8px;
+    padding: 0;
   }
 
   .preview-controls {
@@ -1713,5 +1722,96 @@ body, html {
   .picker-label,
   .picker-value {
     font-size: 0.66rem;
+  }
+}
+
+/* Preview shirt sizing: keep the shirt stable and let the controls wrap around it. */
+.wizard-section-preview .image-container {
+  width: var(--preview-shirt-width);
+}
+
+.preview-composer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.preview-shirt-panel {
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: var(--preview-shirt-width);
+}
+
+.preview-shirt-panel .image-container {
+  margin: auto;
+}
+
+.preview-shirt-panel .bg-image {
+  min-width: 0;
+  width: 100%;
+}
+
+.preview-controls {
+  flex: 1 1 320px;
+  max-width: 420px;
+}
+
+@media only screen and (max-width: 900px) {
+  .preview-composer {
+    align-items: center;
+    flex-direction: column;
+    max-width: min(420px, calc(100vw - 20px));
+  }
+
+  .preview-shirt-panel {
+    align-self: center;
+  }
+
+  .preview-controls {
+    flex: none;
+    width: min(420px, 100%);
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  body, html {
+    --preview-shirt-width: 330px;
+  }
+
+  .preview-composer {
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: min(420px, calc(100vw - 20px));
+  }
+
+  .preview-shirt-panel {
+    align-self: center;
+    width: min(var(--preview-shirt-width), 100%);
+  }
+
+  .wizard-section-preview .image-container {
+    width: min(var(--preview-shirt-width), 100%);
+  }
+
+  .preview-controls {
+    flex: none;
+    max-width: min(360px, 100%);
+    width: min(360px, 100%);
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  body, html {
+    --preview-shirt-width: 300px;
+  }
+
+  .preview-shirt-panel {
+    width: min(var(--preview-shirt-width), 100%);
+  }
+
+  .wizard-section-preview .image-container {
+    width: min(var(--preview-shirt-width), 100%);
   }
 }
