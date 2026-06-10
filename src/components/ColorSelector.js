@@ -88,25 +88,31 @@ export const ColorSelector = ({
 
   const handleClick = () => {
     ensureColoris().then(() => {
-      inputRef.current && inputRef.current.click();
+      if (!inputRef.current) {
+        return;
+      }
+
+      inputRef.current.dispatchEvent(new MouseEvent('click', {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+      }));
     });
-  };
-
-  const handleInputClick = (event) => {
-    if (initializedRef.current) {
-      return;
-    }
-
-    event.preventDefault();
-    event.stopPropagation();
-    handleClick();
   };
 
   return (
     <div className="picker-wrapper" data-testid={testId}>
       <div className="picker-copy">
         <span className="picker-label">{label}</span>
-        <span className="picker-value">{color}</span>
+        <input
+          aria-label={`${label} value`}
+          className={`picker-value coloris-input ${inputClass}`}
+          onChange={(event) => setColor(event.target.value)}
+          onFocus={ensureColoris}
+          ref={inputRef}
+          type="text"
+          value={color}
+        />
       </div>
       <div className="picker-action">
         <button
@@ -118,15 +124,6 @@ export const ColorSelector = ({
         >
           <span className="picker-swatch-color" />
         </button>
-        <input
-          aria-label={`${label} value`}
-          className={`coloris-input ${inputClass}`}
-          onChange={(event) => setColor(event.target.value)}
-          onClick={handleInputClick}
-          ref={inputRef}
-          type="text"
-          value={color}
-        />
       </div>
 
     </div>

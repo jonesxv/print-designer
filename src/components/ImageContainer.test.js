@@ -85,7 +85,7 @@ test('styles design color selectors as labeled swatch controls', () => {
 
   expect(screen.getByTestId('color-selector-color-1')).toHaveClass('picker-wrapper');
   expect(screen.getByText('Color 1')).toHaveClass('picker-label');
-  expect(screen.getByText('#2ec4b6')).toHaveClass('picker-value');
+  expect(screen.getByDisplayValue('#2ec4b6')).toHaveClass('picker-value');
   expect(screen.getByRole('button', { name: /change color 1/i })).toHaveClass('picker-swatch');
 });
 
@@ -99,7 +99,7 @@ test('uses a Coloris input to update design colors', () => {
 
   fireEvent.change(colorInput, { target: { value: '#111111' } });
 
-  expect(screen.getByText('#111111')).toHaveClass('picker-value');
+  expect(screen.getByDisplayValue('#111111')).toHaveClass('picker-value');
 });
 
 test('reminds users they can customize default design colors before submitting', () => {

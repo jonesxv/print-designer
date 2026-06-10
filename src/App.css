@@ -382,14 +382,30 @@ body, html {
 }
 
 .picker-value {
-  color: color-mix(in srgb, var(--navy) 62%, transparent);
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--navy) 18%, transparent);
+  border-radius: 0;
+  color: color-mix(in srgb, var(--navy) 70%, transparent);
+  cursor: text;
   font-size: 0.72rem;
   font-weight: 800;
   line-height: 1;
+  max-width: 86px;
+  min-width: 0;
   overflow: hidden;
+  padding: 2px 0;
   text-overflow: ellipsis;
   text-transform: uppercase;
   white-space: nowrap;
+  width: 100%;
+}
+
+.picker-value:focus {
+  border-color: var(--brand-red);
+  color: var(--navy);
+  outline: none;
 }
 
 .picker-action {
@@ -437,15 +453,7 @@ body, html {
 }
 
 .coloris-input {
-  cursor: pointer;
-  height: 58px;
-  inset: 0;
-  opacity: 0;
-  padding: 0;
-  pointer-events: auto;
-  position: absolute;
-  width: 58px;
-  z-index: 3;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .clr-picker {
@@ -870,8 +878,7 @@ body, html {
     padding: 6px 8px;
   }
 
-  .picker-action,
-  .coloris-input {
+  .picker-action {
     height: 44px;
     width: 44px;
   }
@@ -1650,8 +1657,7 @@ body, html {
     padding: 6px 8px;
   }
 
-  .picker-action,
-  .coloris-input {
+  .picker-action {
     height: 50px;
     width: 50px;
   }
@@ -1777,7 +1783,7 @@ body, html {
 
 @media only screen and (max-width: 760px) {
   body, html {
-    --preview-shirt-width: 330px;
+    --preview-shirt-width: 310px;
   }
 
   .preview-composer {
@@ -1804,7 +1810,7 @@ body, html {
 
 @media only screen and (max-width: 420px) {
   body, html {
-    --preview-shirt-width: 300px;
+    --preview-shirt-width: 285px;
   }
 
   .preview-shirt-panel {
