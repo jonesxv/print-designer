@@ -102,6 +102,21 @@ test('uses a Coloris input to update design colors', () => {
   expect(screen.getByDisplayValue('#111111')).toHaveClass('picker-value');
 });
 
+test('blurs the color hex input after the color picker closes', async () => {
+  renderImageContainer({ initialColor1: '#2ec4b6' });
+
+  const colorInput = screen.getByLabelText(/color 1 value/i);
+  colorInput.focus();
+
+  expect(colorInput).toHaveFocus();
+
+  fireEvent(colorInput, new Event('close'));
+
+  await waitFor(() => {
+    expect(colorInput).not.toHaveFocus();
+  });
+});
+
 test('reminds users they can customize default design colors before submitting', () => {
   renderImageContainer();
 

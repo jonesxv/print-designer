@@ -77,12 +77,19 @@ export const ColorSelector = ({
     const handleInput = (event) => {
       setColor(event.target.value);
     };
+    const handleClose = () => {
+      window.setTimeout(() => {
+        input.blur();
+      }, 0);
+    };
 
     input.addEventListener('input', handleInput);
+    input.addEventListener('close', handleClose);
     ensureColoris();
 
     return () => {
       input.removeEventListener('input', handleInput);
+      input.removeEventListener('close', handleClose);
     };
   }, [ensureColoris, setColor]);
 
