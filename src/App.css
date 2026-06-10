@@ -687,6 +687,26 @@ body, html {
   min-width: 250px;
 }
 
+.image-placeholder {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--navy) 6%, white) 0%, #fff 48%, color-mix(in srgb, var(--brand-red) 7%, white) 100%);
+  border: 1px solid color-mix(in srgb, var(--navy) 8%, transparent);
+  display: block;
+}
+
+.card .image-placeholder {
+  aspect-ratio: 2 / 3;
+  border-radius: 4px;
+  width: min(118px, 100%);
+}
+
+.swatch .image-placeholder {
+  aspect-ratio: 1.28;
+  border: 0;
+  border-radius: 4px;
+  width: 100%;
+}
+
 .image-details {
   display: flex;
   justify-content: center;
@@ -1003,6 +1023,10 @@ body, html {
   width: min(118px, 100%);
 }
 
+.item-card .image-placeholder {
+  width: min(118px, 100%);
+}
+
 .design {
   width: auto;
 }
@@ -1038,6 +1062,12 @@ body, html {
 .shirt-image .color-shirt-preview {
   display: block;
   height: auto;
+  max-width: 300px;
+  width: 100%;
+}
+
+.shirt-image .image-placeholder {
+  aspect-ratio: 2 / 3;
   max-width: 300px;
   width: 100%;
 }
@@ -1733,6 +1763,11 @@ body, html {
 
 /* Preview shirt sizing: keep the shirt stable and let the controls wrap around it. */
 .wizard-section-preview .image-container {
+  aspect-ratio: 2 / 3;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   width: var(--preview-shirt-width);
 }
 
@@ -1755,6 +1790,15 @@ body, html {
 }
 
 .preview-shirt-panel .bg-image {
+  display: block;
+  height: 100%;
+  min-width: 0;
+  object-fit: contain;
+  width: 100%;
+}
+
+.preview-shirt-panel .image-placeholder {
+  height: 100%;
   min-width: 0;
   width: 100%;
 }
@@ -1837,6 +1881,10 @@ body, html {
   }
 
   .item-card img {
+    width: min(82px, 100%);
+  }
+
+  .item-card .image-placeholder {
     width: min(82px, 100%);
   }
 }

@@ -1,4 +1,5 @@
 const imageCache = new Map();
+const resolvedImageCache = new Map();
 
 export const imageLoader = ({ name, type }) => {
   const imageType = type || 'jpg';
@@ -6,9 +7,13 @@ export const imageLoader = ({ name, type }) => {
 
   if (!imageCache.has(cacheKey)) {
     const imagePromise = import(`../images/${name}.${imageType}`)
-      .then(img => img.default)
+      .then((img) => {
+        resolvedImageCache.set(cacheKey, img.default);
+        return img.default;
+      })
       .catch((err) => {
         console.log(err);
+        resolvedImageCache.set(cacheKey, undefined);
         return undefined;
       });
 
@@ -17,6 +22,10 @@ export const imageLoader = ({ name, type }) => {
 
   return imageCache.get(cacheKey);
 };
+
+export const getCachedImage = ({ name, type }) => (
+  resolvedImageCache.get(`${name}.${type || 'jpg'}`)
+);
 
 export const preloadImages = (images) => Promise.allSettled(
   images.map(image => imageLoader(image))

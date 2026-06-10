@@ -104,7 +104,9 @@ const SelectColor = ({ onSelect, previousStep }) => {
     : undefined;
   const handleClick = (color) => {
     setFabColor(color);
-    onSelect();
+    preloadImages([{
+      name: `product/${item.id}-${color}-F`,
+    }]).finally(onSelect);
   }
   return (
     <>
